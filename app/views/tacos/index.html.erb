@@ -103,7 +103,7 @@
     }
 
     this.getTacos = function() {
-      return $http.get('/tacos').then(function(result) {
+      return $http.get('/tacos.json').then(function(result) {
         return _.map(result.data, fromJSON);
       });
     };
