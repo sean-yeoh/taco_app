@@ -1,6 +1,7 @@
 class TacosController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create, :delete]
-  before_action :set_taco, only: [:show, :delete]
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
+  before_action :set_taco, only: [:destroy]
+
   def index
     @tacos = Taco.all
   end
