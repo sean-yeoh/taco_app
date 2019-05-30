@@ -54,4 +54,14 @@ RSpec.describe Taco, type: :model do
       expect(test_taco.price_cents).to eq(test_taco.meat_price_cents + test_taco.sides_price_cents)
     end
   end
+
+  context 'sides validation' do
+    it "should be valid with at least one side" do
+      expect(Taco.new(meat: 'chicken', rice: false, salsa: true, notes: 'Large size please', coleslaw: false)).to be_valid
+    end
+
+    it "should be invalid with no sides" do
+      expect(Taco.new(meat: 'chicken', rice: false, salsa: false, notes: 'Large size please', coleslaw: false)).to_not be_valid
+    end
+  end
 end
