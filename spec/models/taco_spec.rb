@@ -32,4 +32,8 @@ RSpec.describe Taco, type: :model do
       expect(Taco.count).to eq(taco_db_count + 1)
     end
   end
+
+  describe '#notes' do
+    it { is_expected.to validate_presence_of(:notes) }
+  end
 end
