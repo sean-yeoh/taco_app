@@ -40,4 +40,18 @@ RSpec.describe Taco, type: :model do
   describe '#notes' do
     it { is_expected.to validate_presence_of(:notes) }
   end
+
+  context 'monetize' do
+    it 'monetize price attribute' do
+      is_expected.to monetize(:price)
+    end
+  end
+
+  context 'callbacks' do
+    it "calculate price before saving" do
+      expect(test_taco.price_cents).to eq(0)
+      test_taco.save
+      expect(test_taco.price_cents).to eq(test_taco.meat_price_cents + test_taco.sides_price_cents)
+    end
+  end
 end

@@ -21,7 +21,7 @@
 
   <form name="form" novalidate role="form" ng-submit="form.$valid && tc.createTaco()">
     <fieldset ng-disabled="tc.creatingTaco">
-      <label>Meat</label>
+      <label>Meat (<%= humanized_money_with_symbol Taco.new.meat_price %>)</label>
       <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="meat" value="chicken" ng-model="tc.newTaco.meat"> Chicken
@@ -34,7 +34,7 @@
         </label>
       </div>
 
-      <label>Sides</label>
+      <label>Sides (<%= humanized_money_with_symbol Taco.new.single_side_price %> per side)</label>
       <div class="form-group">
         <label class="checkbox-inline">
           <input type="checkbox" ng-model="tc.newTaco.rice"> Rice
@@ -69,6 +69,7 @@
         <th>Salsa</th>
         <th>Coleslaw</th>
         <th>Notes</th>
+        <th>Price</th>
         <th></th>
       </tr>
     </thead>
@@ -80,6 +81,7 @@
         <td class="salsa">{{taco.salsa ? 'yes' : 'no'}}</td>
         <td class="coleslaw">{{taco.coleslaw ? 'yes' : 'no'}}</td>
         <td>{{taco.notes}}</td>
+        <td>{{taco.price}}</td>
         <td><button type="button" class="btn btn-danger btn-xs fa fa-times" title="Delete this Taco" ng-click="tc.deleteTaco(taco)"></button></td>
       </tr>
     </tbody>

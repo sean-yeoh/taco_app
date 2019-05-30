@@ -31,7 +31,7 @@ RSpec.describe TacosController, type: :controller do
 
     it "JSON body response should contain taco attributes" do
       json_response = JSON.parse(response.body)
-      expect(json_response.keys).to match_array(["id", "meat", "rice", "salsa", "notes", "coleslaw", "created_at", "updated_at"])
+      expect(json_response.keys).to match_array(["id", "meat", "rice", "salsa", "notes", "coleslaw", "price"])
     end
   end
 
