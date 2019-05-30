@@ -3,7 +3,7 @@ class TacosController < ApplicationController
   before_action :set_taco, only: [:destroy]
 
   def index
-    @tacos = Taco.all
+    @tacos = Taco.all.order(id: :asc)
   end
 
   def create
@@ -21,7 +21,7 @@ class TacosController < ApplicationController
 
   private
   def taco_params
-    params.require(:taco).permit(:meat, :rice, :salsa, :notes)
+    params.require(:taco).permit(:meat, :rice, :salsa, :notes, :coleslaw)
   end
 
   def set_taco

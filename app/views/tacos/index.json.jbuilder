@@ -4,4 +4,5 @@ json.array! @tacos do |taco|
   json.rice taco.rice
   json.salsa taco.salsa
   json.notes taco.notes
+  json.coleslaw taco.coleslaw
 end

@@ -17,9 +17,13 @@ RSpec.describe Taco, type: :model do
     it "should have notes attribute of type text" do
       should have_db_column(:notes).of_type(:text)
     end
+
+    it "should have coleslaw attribute of type boolean" do
+      should have_db_column(:coleslaw).of_type(:boolean)
+    end
   end
 
-  let(:test_taco) { Taco.new(meat: 'chicken', rice: false, salsa: true, notes: 'Large size please') }
+  let(:test_taco) { Taco.new(meat: 'chicken', rice: false, salsa: true, notes: 'Large size please', coleslaw: false) }
 
   context "can be saved to database" do
     it "is valid" do
