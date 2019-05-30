@@ -11,7 +11,7 @@ class TacosController < ApplicationController
     if @taco.save
       render json: @taco
     else
-      render json: @taco.errors, status: :unprocessable_entity
+      render json: { error_messages: @taco.errors.full_messages.join(', ') }, status: :unprocessable_entity
     end
   end
 

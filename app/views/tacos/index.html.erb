@@ -152,7 +152,7 @@
         tc.tacos.push(taco);
         tc.newTaco = _.clone(defaultTaco);
       }).catch(function(err) {
-        tc.createError = err.message || err.statusText;
+        tc.createError = err.data.error_messages || err.message || err.statusText;
       }).finally(function() {
         tc.creatingTaco = false;
       })
